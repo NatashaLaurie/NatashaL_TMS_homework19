@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BCD4"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:background="#FFFFFF"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardElevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineTop"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="20dp" />
+
+            <ImageView
+                android:id="@+id/homeTeamLogo"
+                android:layout_width="30dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="17dp"
+                android:src="@drawable/logo_napoli"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
+
+            <ImageView
+                android:id="@+id/awayTeamLogo"
+                android:layout_width="30dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/logo_lazio"
+                app:layout_constraintStart_toEndOf="@id/homeTeamLogo"
+                app:layout_constraintStart_toStartOf="@id/homeTeamLogo"
+                app:layout_constraintTop_toBottomOf="@id/homeTeamLogo" />
+
+            <TextView
+                android:id="@+id/homeTeamName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif"
+                android:maxLines="1"
+                android:text="Napoli ffffffffffffffffffffffffffffffffffff"
+                android:textColor="#1d125d"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/homeTeamLogo"
+                app:layout_constraintEnd_toStartOf="@id/homeTeamScore"
+                app:layout_constraintStart_toEndOf="@id/homeTeamLogo"
+                app:layout_constraintTop_toTopOf="@id/homeTeamLogo" />
+
+            <TextView
+                android:id="@+id/awayTeamName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif"
+                android:maxLines="1"
+                android:text="Lazio ffffffffffffffffffffffffffffffff"
+                android:textColor="#1d125d"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/awayTeamLogo"
+                app:layout_constraintEnd_toStartOf="@id/awayTeamScore"
+
+                app:layout_constraintStart_toEndOf="@id/awayTeamLogo"
+                app:layout_constraintTop_toTopOf="@id/awayTeamLogo" />
+
+            <ImageView
+                android:id="@+id/next_btn"
+                android:layout_width="16dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="#1d125d"
+                android:scaleType="centerInside"
+                android:src="@drawable/arrow_button"
+                app:layout_constraintBottom_toBottomOf="@id/awayTeamLogo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/homeTeamLogo" />
+
+            <View
+                android:id="@+id/endDivider"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="#d9d9d9"
+                app:layout_constraintBottom_toBottomOf="@id/awayTeamLogo"
+                app:layout_constraintEnd_toStartOf="@id/next_btn"
+                app:layout_constraintTop_toTopOf="@id/homeTeamLogo" />
+
+            <FrameLayout
+                android:id="@+id/openStats"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/awayTeamLogo"
+                app:layout_constraintDimensionRatio="h,1:1"
+                app:layout_constraintEnd_toEndOf="@id/endDivider"
+                app:layout_constraintTop_toTopOf="@id/homeTeamLogo">
+
+                <ImageView
+                    android:id="@+id/stats_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="24dp"
+                    android:src="@drawable/stats_icon"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="14dp"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:text="Stats fffffffffffffffffffffffffffffff"
+                    android:textColor="#1d125d"
+                    android:textSize="8sp"
+                    android:textStyle="normal" />
+
+            </FrameLayout>
+
+            <View
+                android:id="@+id/middleDivider"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="#d9d9d9"
+                app:layout_constraintBottom_toBottomOf="@id/awayTeamLogo"
+                app:layout_constraintEnd_toStartOf="@id/openStats"
+                app:layout_constraintTop_toTopOf="@id/homeTeamLogo" />
+
+            <TextView
+                android:id="@+id/homeTeamScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif"
+                android:text="2"
+                android:textColor="#1d125d"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/homeTeamName"
+                app:layout_constraintEnd_toStartOf="@id/middleDivider" />
+
+            <TextView
+                android:id="@+id/awayTeamScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif"
+                android:text="2"
+                android:textColor="#1d125d"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/awayTeamName"
+                app:layout_constraintEnd_toStartOf="@id/middleDivider" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+                android:layout_gravity="top"
+                android:background="#1d125d"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/bottomDivider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="12dp"
+                android:background="#d9d9d9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/next_btn"
+                app:layout_constraintStart_toStartOf="@id/awayTeamLogo"
+                app:layout_constraintTop_toBottomOf="@+id/awayTeamLogo" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp">
+
+            <ImageView
+                android:id="@+id/titleLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/title_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="6sp"
+                android:textColor="#1d125d"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/titleLogo"
+                app:layout_constraintStart_toEndOf="@+id/titleLogo"
+                app:layout_constraintTop_toTopOf="@+id/titleLogo"
+                tools:text="AWARDS" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="-0.03"
+                android:textColor="#1d125d"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleLogo"
+                tools:text="EA Sports | Player of The Month" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/playerOfTheMonthCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title2"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:background="#fff">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineCenter"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <ImageView
+                android:id="@+id/playerOfTheMonthTeamLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/logo_milan"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/playerOfTheMonthName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="2sp"
+                android:textColor="#1d125d"
+                android:textSize="22sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="@+id/playerOfTheMonthTeamLogo"
+                app:layout_constraintTop_toBottomOf="@+id/playerOfTheMonthTeamLogo"
+                tools:text="ZLATAN" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="19dp"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="2sp"
+                android:textColor="#1d125d"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/playerOfTheMonthName"
+                app:layout_constraintTop_toBottomOf="@+id/playerOfTheMonthName"
+                tools:text="IBRAHIMOVIC" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/icon_fade_player_awards"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guidelineCenter" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/playerPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/playerOfTheMonthCard"
+            android:layout_alignBottom="@id/playerOfTheMonthCard"
+            android:src="@drawable/photo_player_awards" />
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp">
+
+        <ImageView
+            android:id="@+id/newsPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/newsTitle"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="41dp"
+            android:layout_marginTop="128dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="4sp"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/newsPhoto"
+            app:layout_constraintTop_toTopOf="@id/newsPhoto"
+            tools:text="Le sorprese da schierare al Fantacalcio" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:fontFamily="sans-serif"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/newsTitle"
+            app:layout_constraintTop_toBottomOf="@id/newsTitle"
+            tools:text="30 Jun. 2021" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
