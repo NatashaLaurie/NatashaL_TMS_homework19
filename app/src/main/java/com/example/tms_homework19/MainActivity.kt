@@ -17,5 +17,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, ScoreActivity::class.java)
             startActivity(intent)
         }
+        val btnAkamaiActivity = findViewById<Button>(R.id.btn2)
+
+        btnAkamaiActivity.setOnClickListener {
+            val intent = Intent(this@MainActivity, AkamaiActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
