@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TMS_homework19</string>
+    <string name="napoli">Napoli</string>
+    <string name="title_activity_score">ScoreActivity</string>
+    <string name="sync_time">sync time</string>
 </resources>
