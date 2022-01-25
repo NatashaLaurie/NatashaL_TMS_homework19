@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,46 +15,65 @@ import java.net.URL
 import java.text.DateFormat
 import java.util.*
 
-class AkamaiActivity : AppCompatActivity(), AkamaiView {
+class AkamaiActivity : AppCompatActivity()/*, AkamaiView */ {
 
     private lateinit var timeTextView: TextView
-    private lateinit var presenter: AkamaiPresenter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_akamai)
 
-        presenter = if (savedInstanceState==null) {
-            AkamaiPresenter()
-        } else {
-            lastCustomNonConfigurationInstance as AkamaiPresenter
-        }
+        val viewModel = ViewModelProvider(this).get(AkamaiViewModel::class.java)
+        viewModel.syncTime()
 
         timeTextView = findViewById(R.id.time)
 
-        presenter.view = this
-
         findViewById<Button>(R.id.syncTime).setOnClickListener() {
-            presenter.syncTime()
-
+            viewModel.syncTime()
         }
-        lifecycle.addObserver(presenter)
-    }
-
-    override fun onRetainCustomNonConfigurationInstance(): Any {
-        return presenter
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        if(isFinishing) {
-            presenter.onDestroy()
+        viewModel.time.observe(this) {
+            timeTextView.text = it
         }
-        presenter.view = null
-    }
 
-    override fun setTime(time: String) {
-        timeTextView.text = time
+//    private lateinit var timeTextView: TextView
+//    private lateinit var presenter: AkamaiPresenter
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_akamai)
+
+//        presenter = if (savedInstanceState==null) {
+//            AkamaiPresenter()
+//        } else {
+//            lastCustomNonConfigurationInstance as AkamaiPresenter
+//        }
+//
+//        timeTextView = findViewById(R.id.time)
+//
+//        presenter.view = this
+//
+//        findViewById<Button>(R.id.syncTime).setOnClickListener() {
+//            presenter.syncTime()
+//
+//        }
+//        lifecycle.addObserver(presenter)
+//    }
+//
+//    override fun onRetainCustomNonConfigurationInstance(): Any {
+//        return presenter
+//    }
+//
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        if(isFinishing) {
+//            presenter.onDestroy()
+//        }
+//        presenter.view = null
+//    }
+//
+//    override fun setTime(time: String) {
+//        timeTextView.text = time
+//    }
     }
 }
